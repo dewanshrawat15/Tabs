@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tabs/components/drawer.dart';
 
 class HomeScreen extends StatefulWidget{
   @override
@@ -8,11 +8,6 @@ class HomeScreen extends StatefulWidget{
 }
 
 bool themeState = true;
-
-void setNull() async{
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  await prefs.setBool('firstAttempt', false);
-}
 
 class HomeScreenState extends State<HomeScreen>{
   @override
@@ -49,26 +44,7 @@ class HomeScreenState extends State<HomeScreen>{
             )
           ],
         ),
-        body: FutureBuilder<SharedPreferences>(
-          future: SharedPreferences.getInstance(),
-          builder: (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot){
-            switch(snapshot.connectionState){
-              case ConnectionState.none:
-              case ConnectionState.waiting:
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              case ConnectionState.done:
-              default:
-                if(!snapshot.hasError){
-                  if(snapshot.data.getBool("firstAttempt") != null){
-                    setNull();
-                  }
-                  return snapshot.data.getBool("firstAttempt") != null ? Center(child: Text("Loaded"),) : Center(child: Text("Not loaded"),);
-                }
-            }
-          },
-        ),
+        drawer: SlideInDrawer(themeState: themeState,),
       ),
     );
   }
