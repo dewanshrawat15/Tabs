@@ -13,7 +13,7 @@ class SlideInDrawer extends StatelessWidget{
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.red,
+              color: Colors.deepOrange,
             ),
             child: Padding(
               padding: EdgeInsets.only(top: 100),

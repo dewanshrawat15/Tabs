@@ -125,7 +125,7 @@ class AccountScreenState extends State<AccountScreen>{
                       ),
                       Text(
                         "@" + snapshot.data[0].username,
-                        style: TextStyle(fontSize: 22, fontFamily: "Product Sans", color: Colors.red),
+                        style: TextStyle(fontSize: 22, fontFamily: "Product Sans", color: Colors.deepOrange),
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: 32),
@@ -139,7 +139,7 @@ class AccountScreenState extends State<AccountScreen>{
                       ),
                       Text(
                         snapshot.data[0].title,
-                        style: TextStyle(fontSize: 24, fontFamily: "Product Sans", color: Colors.red),
+                        style: TextStyle(fontSize: 24, fontFamily: "Product Sans", color: Colors.deepOrange),
                       )
                     ],
                   ),

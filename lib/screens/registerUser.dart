@@ -125,11 +125,11 @@ class EditProfileScreenState extends State<EditProfileScreen>{
                     borderSide: BorderSide(color: Colors.grey, width: 1.0),
                   ),
                   focusedBorder: new UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0),
+                    borderSide: BorderSide(color: Colors.deepOrange, width: 1.0),
                   ),
-                  icon: Icon(Icons.account_circle, color: Colors.red),
+                  icon: Icon(Icons.account_circle, color: Colors.deepOrange),
                   labelText: 'Name',
-                  labelStyle: TextStyle(color: Colors.red),
+                  labelStyle: TextStyle(color: Colors.deepOrange),
                 ),
                 onChanged: (nameData){
                   if(nameData.length == 0){
@@ -159,11 +159,11 @@ class EditProfileScreenState extends State<EditProfileScreen>{
                     borderSide: BorderSide(color: Colors.grey, width: 1.0),
                   ),
                   focusedBorder: new UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0),
+                    borderSide: BorderSide(color: Colors.deepOrange, width: 1.0),
                   ),
-                  icon: Icon(Icons.text_fields, color: Colors.red),
+                  icon: Icon(Icons.text_fields, color: Colors.deepOrange),
                   labelText: 'Username',
-                  labelStyle: TextStyle(color: Colors.red),
+                  labelStyle: TextStyle(color: Colors.deepOrange),
                 ),
                 onChanged: (usernameData){
                   if(usernameData.length == 0){
@@ -193,11 +193,11 @@ class EditProfileScreenState extends State<EditProfileScreen>{
                     borderSide: BorderSide(color: Colors.grey, width: 1.0),
                   ),
                   focusedBorder: new UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0),
+                    borderSide: BorderSide(color: Colors.deepOrange, width: 1.0),
                   ),
-                  icon: Icon(Icons.email, color: Colors.red),
+                  icon: Icon(Icons.email, color: Colors.deepOrange),
                   labelText: 'Email',
-                  labelStyle: TextStyle(color: Colors.red),
+                  labelStyle: TextStyle(color: Colors.deepOrange),
                 ),
                 onChanged: (emailIDData){
                   if(emailIDData.length == 0){
@@ -227,11 +227,11 @@ class EditProfileScreenState extends State<EditProfileScreen>{
                     borderSide: BorderSide(color: Colors.grey, width: 1.0),
                   ),
                   focusedBorder: new UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0),
+                    borderSide: BorderSide(color: Colors.deepOrange, width: 1.0),
                   ),
-                  icon: Icon(Icons.title, color: Colors.red),
+                  icon: Icon(Icons.title, color: Colors.deepOrange),
                   labelText: 'Title',
-                  labelStyle: TextStyle(color: Colors.red),
+                  labelStyle: TextStyle(color: Colors.deepOrange),
                 ),
                 onChanged: (titleData){
                   if(titleData.length == 0){
@@ -261,11 +261,11 @@ class EditProfileScreenState extends State<EditProfileScreen>{
                     borderSide: BorderSide(color: Colors.grey, width: 1.0),
                   ),
                   focusedBorder: new UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0),
+                    borderSide: BorderSide(color: Colors.deepOrange, width: 1.0),
                   ),
-                  icon: Icon(Icons.image, color: Colors.red),
+                  icon: Icon(Icons.image, color: Colors.deepOrange),
                   labelText: 'Avatar URL',
-                  labelStyle: TextStyle(color: Colors.red),
+                  labelStyle: TextStyle(color: Colors.deepOrange),
                 ),
                 onChanged: (photoTextData){
                   if(photoTextData.length == 0){
@@ -295,11 +295,11 @@ class EditProfileScreenState extends State<EditProfileScreen>{
                     borderSide: BorderSide(color: Colors.grey, width: 1.0),
                   ),
                   focusedBorder: new UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0),
+                    borderSide: BorderSide(color: Colors.deepOrange, width: 1.0),
                   ),
-                  icon: Icon(Icons.lock, color: Colors.red),
+                  icon: Icon(Icons.lock, color: Colors.deepOrange),
                   labelText: 'Password',
-                  labelStyle: TextStyle(color: Colors.red),
+                  labelStyle: TextStyle(color: Colors.deepOrange),
                 ),
                 obscureText: true,
                 onChanged: (passwordTextData){
@@ -330,11 +330,11 @@ class EditProfileScreenState extends State<EditProfileScreen>{
                     borderSide: BorderSide(color: Colors.grey, width: 1.0),
                   ),
                   focusedBorder: new UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0),
+                    borderSide: BorderSide(color: Colors.deepOrange, width: 1.0),
                   ),
-                  icon: Icon(Icons.lock, color: Colors.red),
+                  icon: Icon(Icons.lock, color: Colors.deepOrange),
                   labelText: 'Password Again',
-                  labelStyle: TextStyle(color: Colors.red),
+                  labelStyle: TextStyle(color: Colors.deepOrange),
                 ),
                 obscureText: true,
                 onChanged: (rePasswordTextData){
