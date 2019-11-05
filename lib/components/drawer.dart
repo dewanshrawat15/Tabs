@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/profileScreen.dart';
+import '../screens/records.dart';
 
 class SlideInDrawer extends StatelessWidget{
   bool themeState;
@@ -37,6 +38,22 @@ class SlideInDrawer extends StatelessWidget{
                 style: TextStyle(fontSize: 20, fontFamily: "Product Sans"),
               ),
               leading: Icon(Icons.account_circle, color: themeState ? Colors.black : Colors.white,),
+            ),
+          ),
+          InkWell(
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TransactionScreen())
+              );
+            },
+            child: ListTile(
+              title: Text(
+                "My Transactions",
+                style: TextStyle(fontSize: 20, fontFamily: "Product Sans"),
+              ),
+              leading: Icon(Icons.history, color: themeState ? Colors.black : Colors.white,),
             ),
           )
         ],
