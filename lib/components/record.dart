@@ -2,7 +2,7 @@ class Record{
   String payer;
   String payee;
   int amount;
-  DateTime time;
+  String time;
 
   Record({this.payer, this.payee, this.amount, this.time});
 

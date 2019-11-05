@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import '../components/record.dart';
+import 'addTransact.dart';
 
 class TransactionScreen extends StatefulWidget{
   @override
@@ -15,7 +16,7 @@ class TransactionScreenState extends State<TransactionScreen>{
       join(await getDatabasesPath(), 'records.db'),
       onCreate: (db, version){
         return db.execute(
-          "CREATE TABLE recordHistory(payer TEXT, payee TEXT, amount INT, time DATETIME)",
+          "CREATE TABLE recordHistory(payer TEXT, payee TEXT, amount INT, time TEXT)",
         );
       },
       version: 1
@@ -34,6 +35,11 @@ class TransactionScreenState extends State<TransactionScreen>{
         time: maps[i]['time'],
       );
     });
+  }
+
+  Future<void> deleteDatabase() async{
+    final Database db = await connectDatabase();
+    await db.delete('accountDetails');
   }
 
   @override
@@ -102,6 +108,7 @@ class TransactionScreenState extends State<TransactionScreen>{
                           ),
                           title: (snapshot.data[index].payee) != null ? Text((snapshot.data[index].payee)) : null,
                           subtitle: (snapshot.data[index].amount) != null ? Text((snapshot.data[index].amount).toString()) : null,
+                          trailing: (snapshot.data[index].time) != null ? Text((snapshot.data[index].time)) : Text("null"),
                         ),
                       );
                     },
@@ -117,7 +124,10 @@ class TransactionScreenState extends State<TransactionScreen>{
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddTransactionRecord())
+          );
         },
         child: Icon(Icons.add),
       ),
