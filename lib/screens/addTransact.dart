@@ -260,7 +260,6 @@ class AddTransactionRecordState extends State<AddTransactionRecord>{
                   else{
                     record.amount = ((record.amount) / 2) as int;
                   }
-                  print(record.amount);
                   setState(() {
                     dropdownValue = val;
                   });

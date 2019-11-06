@@ -41,6 +41,9 @@ class HomeScreenState extends State<HomeScreen>{
 
   @override
   void initState() {
+    setState(() {
+      
+    });
     super.initState();
   }
 
