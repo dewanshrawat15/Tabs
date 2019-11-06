@@ -101,13 +101,10 @@ class TransactionScreenState extends State<TransactionScreen>{
                           leading: CircleAvatar(
                             radius: 24,
                             backgroundColor: Colors.red,
-                            child: (snapshot.data[index].payer) != null ? Text(
-                              (snapshot.data[index].payer[0]).toUpperCase(),
-                              style: TextStyle(fontFamily: "Product Sans", fontSize: 20, color: Colors.white),
-                            ) : Icon(Icons.credit_card, color: Colors.white,),
+                            child: Icon(Icons.attach_money, color: Colors.white,)
                           ),
                           title: (snapshot.data[index].payee) != null ? Text((snapshot.data[index].payee)) : null,
-                          subtitle: (snapshot.data[index].amount) != null ? Text((snapshot.data[index].amount).toString()) : null,
+                          subtitle: (snapshot.data[index].amount) != null ? ((snapshot.data[index].amount) < 0 ? Text("Pay " + (-(snapshot.data[index].amount)).toString()) : Text("Recieve " + ((snapshot.data[index].amount)).toString())) : null ,
                           trailing: (snapshot.data[index].time) != null ? Text((snapshot.data[index].time)) : Text("null"),
                         ),
                       );

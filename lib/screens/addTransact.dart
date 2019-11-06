@@ -67,6 +67,8 @@ class AddTransactionRecordState extends State<AddTransactionRecord>{
     );
   }
 
+  String dropdownValue = 'Paid to you';
+
   @override
   void initState() {
     super.initState();
@@ -115,7 +117,7 @@ class AddTransactionRecordState extends State<AddTransactionRecord>{
                   focusedBorder: new UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.red, width: 1.0),
                   ),
-                  icon: Icon(Icons.credit_card, color: Colors.red),
+                  icon: Icon(Icons.account_circle, color: Colors.red),
                   labelText: 'Payer',
                   labelStyle: TextStyle(color: Colors.red),
                 ),
@@ -181,7 +183,7 @@ class AddTransactionRecordState extends State<AddTransactionRecord>{
                   focusedBorder: new UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.red, width: 1.0),
                   ),
-                  icon: Icon(Icons.lock, color: Colors.red),
+                  icon: Icon(Icons.attach_money, color: Colors.red),
                   labelText: 'Amount',
                   labelStyle: TextStyle(color: Colors.red),
                 ),
@@ -229,6 +231,46 @@ class AddTransactionRecordState extends State<AddTransactionRecord>{
                 onEditingComplete: (){
                   timeDateFocusNode.unfocus();
                 },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 32),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 12, right: 12),
+              child: DropdownButton<String>(
+                value: dropdownValue,
+                icon: Icon(Icons.arrow_drop_down_circle, color: Colors.deepOrange,),
+                iconSize: 28,
+                elevation: 16,
+                style: TextStyle(
+                  color: Colors.deepOrange
+                ),
+                underline: Container(
+                  height: 2,
+                  color: Colors.deepOrangeAccent,
+                ),
+                onChanged: (String val){
+                  if(val == 'Paid to you'){
+                    record.amount = record.amount;
+                  }
+                  else if(val == 'Paid by you'){
+                    record.amount = -record.amount;
+                  }
+                  else{
+                    record.amount = ((record.amount) / 2) as int;
+                  }
+                  print(record.amount);
+                  setState(() {
+                    dropdownValue = val;
+                  });
+                },
+                items: <String>['Paid to you', 'Paid by you', 'Split between you'].map<DropdownMenuItem<String>>((String value){
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value, style: TextStyle(fontSize: 20, fontFamily: "Product Sans"),)
+                  );
+                }).toList(),
               ),
             )
           ],
