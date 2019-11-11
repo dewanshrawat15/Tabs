@@ -9,9 +9,9 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.2
-  share: any
-  sqflite: any
+  shared_preferences: any
   path: any
+  sqflite: any
 
 dev_dependencies:
   flutter_test:
