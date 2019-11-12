@@ -7,7 +7,8 @@ void main() => runApp(
     debugShowCheckedModeBanner: false,
     home: HomeScreen(),
     theme: ThemeData(
-      primaryColor: ThemeColor
+      primaryColor: ThemeColor,
+      accentColor: ThemeColor
     ),
   )
 );

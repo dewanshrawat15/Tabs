@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/colors.dart';
+import 'createAccountScreen.dart';
 
 class GetttingStarted extends StatelessWidget{
   @override
@@ -26,7 +27,12 @@ class GetttingStarted extends StatelessWidget{
             child: ClipRRect(
               borderRadius: BorderRadius.circular(32),
               child: RaisedButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => EditProfile())
+                  );
+                },
                 color: ThemeColor,
                 padding: EdgeInsets.symmetric(vertical: 18.0, horizontal: 60.0),
                 child: Center(
@@ -36,7 +42,7 @@ class GetttingStarted extends StatelessWidget{
                       Text(
                         "Create Account",
                         style: TextStyle(
-                          fontFamily: "Google Sans",
+                          fontFamily: "Product Sans",
                           fontSize: 18,
                           color: Colors.white
                         ),
