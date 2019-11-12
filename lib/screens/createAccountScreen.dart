@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../components/profile.dart';
-import '../components/colors.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -33,7 +32,7 @@ class EditProfileState extends State<EditProfile>{
     );
   }
 
-  Account user;
+  Account user = new Account();
 
   final formKey = GlobalKey<FormState>();
 
@@ -72,6 +71,7 @@ class EditProfileState extends State<EditProfile>{
                           icon: Icon(Icons.person_outline),
                           labelText: "Name"
                         ),
+                        textCapitalization: TextCapitalization.words,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.text,
                         onChanged: (nameValue){
@@ -175,8 +175,7 @@ class EditProfileState extends State<EditProfile>{
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          print(user.toMap());
-          // insertCardProfile(user);
+          insertCardProfile(user);
           Navigator.pop(context);
         },
         child: Icon(Icons.chevron_right),
