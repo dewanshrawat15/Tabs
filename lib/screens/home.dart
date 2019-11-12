@@ -6,6 +6,7 @@ import 'package:sqflite/sqflite.dart';
 import '../components/colors.dart';
 import 'splash.dart';
 import '../components/profile.dart';
+import 'setup.dart';
 
 class HomeScreen extends StatefulWidget{
   @override
@@ -27,7 +28,7 @@ class HomeScreenState extends State<HomeScreen>{
     return database;
   }
 
-  Future<List<Account>> getProfile() async{
+  Future<List<Account>> getProfile() async => await Future.delayed(Duration(milliseconds: 1400), () async {
     final Database db = await connectDatabase();
     final List<Map<String, dynamic>> maps = await db.query('accountDetails');
     return List.generate(maps.length, (i){
@@ -38,7 +39,7 @@ class HomeScreenState extends State<HomeScreen>{
         photoURL: maps[i]['avatarPhotoURL']
       );
     });
-  }
+  });
 
   @override
   Widget build(BuildContext context){
@@ -51,14 +52,8 @@ class HomeScreenState extends State<HomeScreen>{
         builder: (BuildContext context, AsyncSnapshot snapshot){
           if(snapshot.hasData){
             if(snapshot.data.length == 0){
-              // return Center(
-              //   child: Text(
-              //     "Bring the create account screen here",
-              //     style: TextStyle(fontSize: 24, fontFamily: "Product Sans"),
-              //   ),
-              // );
               return Center(
-                child: SplashScreen(),
+                child: GetttingStarted(),
               );
             }
             else{
