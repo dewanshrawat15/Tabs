@@ -3,10 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../components/colors.dart';
 import 'splash.dart';
-import '../components/profile.dart';
 import 'setup.dart';
+
+import '../components/profile.dart';
+import '../components/colors.dart';
 
 class HomeScreen extends StatefulWidget{
   @override
@@ -33,10 +34,7 @@ class HomeScreenState extends State<HomeScreen>{
     final List<Map<String, dynamic>> maps = await db.query('accountDetails');
     return List.generate(maps.length, (i){
       return Account(
-        name: maps[i]['name'],
-        username: maps[i]['username'],
-        email: maps[i]['email'],
-        photoURL: maps[i]['avatarPhotoURL']
+        username: maps[i]['username']
       );
     });
   });

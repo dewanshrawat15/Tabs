@@ -77,7 +77,8 @@ class EditProfileState extends State<EditProfile>{
                         onChanged: (nameValue){
                           user.name = nameValue;
                         },
-                        onFieldSubmitted: (value){
+                        onFieldSubmitted: (nameValue){
+                          user.name = nameValue;
                           namefocusnode.unfocus();
                           FocusScope.of(context).requestFocus(usernamefocusnode);
                         },
@@ -104,7 +105,8 @@ class EditProfileState extends State<EditProfile>{
                         onChanged: (usernameValue){
                           user.username = usernameValue;
                         },
-                        onFieldSubmitted: (value){
+                        onFieldSubmitted: (usernameValue){
+                          user.username = usernameValue;
                           usernamefocusnode.unfocus();
                           FocusScope.of(context).requestFocus(emailfocusnode);
                         },
@@ -131,7 +133,8 @@ class EditProfileState extends State<EditProfile>{
                         onChanged: (emailValue){
                           user.email = emailValue;
                         },
-                        onFieldSubmitted: (value){
+                        onFieldSubmitted: (emailValue){
+                          user.email = emailValue;
                           emailfocusnode.unfocus();
                           FocusScope.of(context).requestFocus(photourlfocusnode);
                         },
@@ -158,7 +161,8 @@ class EditProfileState extends State<EditProfile>{
                         onChanged: (photoURLValue){
                           user.photoURL = photoURLValue;
                         },
-                        onFieldSubmitted: (value){
+                        onFieldSubmitted: (photoURLValue){
+                          user.photoURL = photoURLValue;
                           photourlfocusnode.unfocus();
                         },
                         validator: (value){
@@ -175,8 +179,10 @@ class EditProfileState extends State<EditProfile>{
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          insertCardProfile(user);
-          Navigator.pop(context);
+          if(user.email.length != 0 && user.username.length != 0 && user.photoURL.length != 0){
+            insertCardProfile(user);
+            Navigator.pop(context);
+          }
         },
         child: Icon(Icons.chevron_right),
       ),
