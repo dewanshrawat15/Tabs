@@ -1,8 +1,8 @@
 class Record{
-  String title, description, time;
+  String title, description, time, type;
   int amount;
 
-  Record(this.amount, this.description, this.title, this.time);
+  Record({this.amount, this.description, this.title, this.time, this.type});
 
   Map <String, dynamic> toMap(){
     return {
@@ -10,6 +10,7 @@ class Record{
       'amount': amount,
       'description': description,
       'time': time,
+      'type': type
     };
   }
 }

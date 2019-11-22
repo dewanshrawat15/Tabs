@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
+
+import 'sendMoneyScreen.dart';
 
 import '../components/colors.dart';
 
@@ -34,7 +34,7 @@ class DasboardScreenState extends State<DashboardScreen>{
         body: TabBarView(
           children: <Widget>[
             Center(
-              child: RotationTransition(turns: AlwaysStoppedAnimation(45/360), child: Tab(icon: Icon(Icons.arrow_upward,),),),
+              child: SendMoneyScreen(),
             ),
             Center(
               child: RotationTransition(turns: AlwaysStoppedAnimation(45/360), child: Tab(icon: Icon(Icons.arrow_downward,),),),
