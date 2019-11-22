@@ -5,6 +5,7 @@ import 'package:sqflite/sqflite.dart';
 
 import 'splash.dart';
 import 'setup.dart';
+import 'dashboard.dart';
 
 import '../components/profile.dart';
 import '../components/colors.dart';
@@ -44,32 +45,29 @@ class HomeScreenState extends State<HomeScreen>{
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: ThemeColor
     ));
-    return Scaffold(
-      body: FutureBuilder(
-        future: getProfile(),
-        builder: (BuildContext context, AsyncSnapshot snapshot){
-          if(snapshot.hasData){
-            if(snapshot.data.length == 0){
-              return Center(
+    return FutureBuilder(
+      future: getProfile(),
+      builder: (BuildContext context, AsyncSnapshot snapshot){
+        if(snapshot.hasData){
+          if(snapshot.data.length == 0){
+            return Scaffold(
+              body: Center(
                 child: GetttingStarted(),
-              );
-            }
-            else{
-              return Center(
-                child: Text(
-                  "Show the home screen over here",
-                  style: TextStyle(fontSize: 24, fontFamily: "Product Sans"),
-                ),
-              );
-            }
-          }
-          else{
-            return Center(
-              child: SplashScreen(),
+              ),
             );
           }
-        },
-      ),
+          else{
+            return DashboardScreen();
+          }
+        }
+        else{
+          return Scaffold(
+            body: Center(
+              child: SplashScreen(),
+            )
+          );
+        }
+      },
     );
   }
 }
